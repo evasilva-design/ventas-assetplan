@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Departamento 2D en venta Estación Central · 2.500 UF · Arriendo garantizado · Assetplan</title>
+<meta name="description" content="Departamento seminuevo 2D en Coronel Souper 4250, Estación Central. En venta 2.500 UF con bono pie 10%, arriendo garantizado $650.000/mes y rentabilidad 6.2%. Entrega inmediata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1E2939;background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea,select{font-family:'Inter',sans-serif}
+:root{
+  --blue-600:#155DFC;--blue-500:#2B7FFF;--blue-100:#DBEAFE;--blue-50:#EFF6FF;
+  --gray-800:#1E2939;--gray-600:#4A5565;--gray-500:#6A7282;--gray-400:#99A1AF;
+  --gray-300:#D1D5DC;--gray-200:#E5E7EB;--gray-100:#F3F4F6;--gray-50:#F9FAFB;
+  --green-600:#009966;--green-100:#D0FAE5;
+  --shadow-soft:0px 4px 10px 0px rgba(9,30,66,.08),0px 0px 1px 0px rgba(9,30,66,.36);
+  --shadow-med:0px 10px 15px 0px rgba(9,30,66,.1),0px 0px 1px 0px rgba(9,30,66,.31);
+}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--gray-200);height:76px;display:flex;align-items:center;box-shadow:var(--shadow-med)}
+.navbar-inner{max-width:1276px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-menu-btn{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;transition:background .15s}
+.nav-menu-btn:hover{background:var(--gray-100)}
+
+/* LAYOUT */
+.page-wrap{max-width:1276px;margin:0 auto;padding:32px 24px 80px}
+.two-col{display:grid;grid-template-columns:1fr 370px;gap:40px;align-items:start}
+
+/* HEADER */
+.listing-header{margin-bottom:16px}
+.listing-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+.listing-title{font-size:28px;font-weight:600;color:var(--gray-800);line-height:36px}
+.share-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-300);flex-shrink:0;transition:background .15s;cursor:pointer;background:#fff}
+.share-btn:hover{background:var(--gray-100)}
+.listing-address{font-size:16px;color:var(--gray-500);line-height:24px}
+.listing-building{font-size:14px;font-weight:600;color:var(--gray-800);line-height:20px;margin-bottom:2px}
+.listing-address-row{display:flex;align-items:center;gap:4px;font-size:14px;color:var(--gray-500);line-height:20px}
+
+/* BANNER RENTABILIDAD */
+.rent-banner{background:#fff;border:1px solid var(--gray-200);border-radius:10px;margin-bottom:16px;box-shadow:var(--shadow-soft);overflow:hidden}
+.rb-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;divide-x:1px}
+.rb-item{text-align:center;padding:14px 10px;position:relative}
+.rb-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--gray-200)}
+.rb-val{font-size:20px;font-weight:700;color:var(--gray-800);line-height:1.1}
+.rb-val.green{color:var(--green-600)}
+.rb-label{font-size:11px;color:var(--gray-500);margin-top:4px;line-height:1.3}
+.rb-div{display:none}
+.rb-footer{border-top:1px solid var(--gray-200);padding:8px 16px;display:flex;align-items:center;justify-content:center}
+.rb-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-100);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:500;color:var(--green-600)}
+.urgency-dot{width:7px;height:7px;border-radius:50%;background:var(--green-600);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* GALERÍA */
+.gallery{position:relative;width:100%;border-radius:12px 12px 0 0;overflow:hidden;margin-bottom:0;background:#f3f4f6}
+.gallery-track-wrap{position:relative;width:100%;height:420px;overflow:hidden}
+.gallery-track{display:flex;height:100%;transition:transform .35s ease}
+.gallery-track img{width:100%;height:420px;object-fit:cover;flex-shrink:0}
+.gallery-badge{position:absolute;top:12px;left:12px;background:var(--blue-100);color:var(--blue-600);font-size:12px;font-weight:500;padding:2px 10px;border-radius:32px;box-shadow:0 0 16px rgba(0,0,0,.25);z-index:2}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.88);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:background .15s}
+.gallery-nav:hover{background:#fff}
+.gallery-nav-left{left:12px}
+.gallery-nav-right{right:12px}
+.gallery-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:5px;background:rgba(31,41,55,.18);padding:5px 8px;border-radius:12px;z-index:2}
+.gallery-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .2s}
+.gallery-dot.active{background:#fff}
+.gallery-more-btn{position:absolute;bottom:12px;right:12px;background:rgba(30,41,57,.82);color:#fff;border:none;font-size:12px;font-weight:500;padding:6px 12px;border-radius:4px;cursor:pointer;backdrop-filter:blur(4px);z-index:2;display:flex;align-items:center;gap:6px}
+/* gallery desktop tamaño */
+@media(min-width:1024px){.gallery-track-wrap{height:420px}.gallery-track img{height:420px}}
+
+/* PRECIO */
+.precio-block{margin-bottom:16px}
+.precio-meta{display:flex;align-items:center;gap:8px;font-size:16px;color:var(--gray-800);margin-bottom:4px}
+.entrega-chip{display:flex;align-items:center;gap:4px;font-size:16px;font-weight:500;color:var(--gray-800)}
+.precio-main{font-size:28px;font-weight:600;color:var(--gray-800);line-height:36px;margin-bottom:2px}
+.precio-bono{font-size:18px;color:var(--green-600);line-height:28px}
+.precio-lista{font-size:18px;color:var(--gray-500);line-height:28px}
+
+/* SPECS */
+.specs-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.spec-chip{display:flex;align-items:center;gap:5px;border:1px solid var(--gray-300);border-radius:8px;padding:6px 10px;font-size:15px;font-weight:500;color:var(--gray-800);background:#fff}
+.spec-chip img{width:20px;height:20px;flex-shrink:0}
+
+/* SECTION */
+.section{padding:24px 0;border-top:1px solid var(--gray-200)}
+.section-title{font-size:20px;font-weight:600;color:var(--gray-800);line-height:28px;margin-bottom:16px}
+.section-text{font-size:16px;color:var(--gray-800);line-height:24px}
+
+/* CONDICIONES ARRIENDO */
+.arr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:12px}
+.arr-item{display:flex;align-items:center;gap:10px}
+.arr-icon{width:64px;height:64px;background:var(--blue-50);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.arr-icon img{width:32px;height:32px}
+.arr-label{font-size:15px;color:var(--gray-500);line-height:22px;margin-bottom:4px}
+.arr-val{font-size:16px;font-weight:600;color:var(--gray-800);line-height:24px}
+.arr-badge{display:inline-flex;align-items:center;gap:4px;background:var(--green-100);border-radius:32px;padding:2px 8px;font-size:14px;font-weight:500;color:var(--green-600)}
+.arr-note{font-size:14px;color:var(--gray-500);line-height:20px;margin-top:8px}
+
+/* BENEFICIOS */
+.benef-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.benef-card{background:var(--gray-50);border:1px solid var(--gray-300);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.benef-icon{width:64px;height:64px;background:var(--blue-50);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.benef-icon img{width:32px;height:32px}
+.benef-title{font-size:16px;font-weight:600;color:var(--gray-800)}
+.benef-text{font-size:15px;color:var(--gray-800);line-height:22px}
+
+/* CALCULADORA */
+.calc-trigger{border:1px solid var(--gray-300);border-radius:8px;padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:border-color .15s}
+.calc-trigger:hover{border-color:var(--blue-600)}
+.calc-icon{width:52px;height:52px;background:var(--blue-600);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.calc-icon img{width:32px;height:32px;filter:brightness(0) invert(1)}
+.calc-trigger-info{flex:1}
+.calc-title{font-size:20px;font-weight:600;color:var(--blue-600)}
+.calc-sub{font-size:15px;color:var(--gray-500)}
+.calc-chev{width:32px;height:32px;transition:transform .25s}
+.calc-body{display:none;padding-top:20px}
+.calc-body.open{display:block}
+.calc-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.cf{display:flex;flex-direction:column;gap:4px}
+.cl{font-size:13px;font-weight:500;color:var(--gray-600)}
+.ci{width:100%;height:44px;border:1px solid var(--gray-300);border-radius:6px;padding:0 12px;font-size:15px;outline:none;transition:border-color .15s}
+.ci:focus{border-color:var(--blue-600)}
+.cs{width:100%;margin:6px 0;--pct:0%}
+.csr{display:flex;align-items:center;justify-content:space-between}
+.csv{font-size:13px;font-weight:600;color:var(--gray-800)}
+.cresults{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.cbox{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:12px 14px}
+.cbox-title{font-size:11px;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.crow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--gray-200);font-size:13px}
+.crow:last-child{border-bottom:none}
+.crow-l{color:var(--gray-600)}
+.crow-v{font-weight:600;color:var(--gray-800)}
+.crow-v.blue{color:var(--blue-600)}
+.crow-v.green{color:var(--green-600)}
+.crow-v.red{color:#DC2626}
+.calc-disc{font-size:12px;color:var(--gray-400);margin-top:10px;line-height:18px}
+
+/* LISTAS */
+.list-items{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.list-item{font-size:16px;color:var(--gray-800)}
+.comod-item{display:flex;align-items:center;gap:10px;font-size:16px;color:#1F2937}
+.comod-item img{width:24px;height:24px}
+.expand-btn{width:100%;border:2px solid var(--gray-300);border-radius:4px;padding:12px 16px;font-size:16px;font-weight:500;color:var(--blue-600);background:#fff;cursor:pointer;transition:border-color .15s}
+.expand-btn:hover{border-color:var(--blue-600)}
+
+/* UBICACIÓN */
+.ubi-pin{display:flex;align-items:center;gap:6px;font-size:16px;color:var(--gray-800);margin-bottom:10px}
+.ubi-metro{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
+.ubi-metro img{width:20px;height:20px;flex-shrink:0;margin-top:2px}
+.metro-name{font-size:16px;color:var(--gray-800)}
+.metro-dist{font-size:14px;color:var(--gray-500);margin-top:2px}
+.map-placeholder{width:100%;height:140px;background:#e8ecf0;border-radius:12px;margin-bottom:14px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:14px}
+
+/* ACORDEÓN */
+.acc-item{background:#fff;border:1px solid var(--gray-300);border-radius:6px;overflow:hidden;margin-bottom:10px}
+.acc-item.open{border-color:#93C5FD}
+.acc-q{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;font-size:16px;font-weight:600;color:var(--gray-800);gap:12px}
+.acc-q img{width:24px;height:24px;transition:transform .25s;flex-shrink:0}
+.acc-item.open .acc-q img{transform:rotate(180deg)}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc-item.open .acc-a{max-height:200px}
+.acc-a-inner{padding:0 14px 14px;font-size:15px;color:var(--gray-500);line-height:24px}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:92px}
+.contact-card{background:#fff;border:1px solid var(--gray-300);border-radius:10px;padding:20px;box-shadow:var(--shadow-soft);margin-bottom:16px}
+.contact-title{font-size:18px;font-weight:600;color:#0A0A0A;margin-bottom:12px;line-height:28px}
+.trust-sig{display:flex;align-items:center;gap:8px;background:var(--green-100);border-radius:6px;padding:8px 12px;margin-bottom:14px;font-size:13px;color:var(--green-600);font-weight:500}
+.ff{margin-bottom:12px}
+.fl{font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px;display:block}
+.fi{width:100%;height:48px;border:1px solid var(--gray-300);border-radius:6px;padding:10px 12px;font-size:16px;outline:none;transition:border-color .15s;-webkit-appearance:none}
+.fi:focus{border-color:var(--blue-600)}
+.fi::placeholder{color:var(--gray-400)}
+.fta{width:100%;min-height:72px;border:1px solid var(--gray-300);border-radius:6px;padding:10px 12px;font-size:16px;outline:none;resize:vertical;transition:border-color .15s;font-family:'Inter',sans-serif}
+.fta:focus{border-color:var(--blue-600)}
+.fta::placeholder{color:var(--gray-400)}
+.btn-cta{width:100%;background:var(--blue-600);color:#fff;border:none;border-radius:4px;padding:13px 16px;font-size:16px;font-weight:500;cursor:pointer;transition:background .15s;font-family:'Inter',sans-serif}
+.btn-cta:hover{background:#1147d6}
+.form-note{font-size:15px;color:var(--gray-500);text-align:center;line-height:22px;margin-top:10px}
+.btn-dl{width:100%;border:2px solid var(--blue-600);border-radius:4px;padding:12px 16px;font-size:16px;font-weight:500;color:var(--blue-600);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s;font-family:'Inter',sans-serif}
+.btn-dl:hover{background:var(--blue-50)}
+
+/* FOOTER */
+.footer{background:var(--gray-50);border-top:1px solid var(--gray-200);padding:48px 0 0}
+.footer-inner{max-width:1204px;margin:0 auto;padding:0 32px}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding-bottom:32px}
+.footer-col-title{font-size:14px;font-weight:600;color:#4B5563;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:14px}
+.footer-link{font-size:16px;color:#6B7280;transition:color .15s}
+.footer-link:hover{color:var(--gray-800)}
+.footer-bottom{border-top:1px solid #CDD1D7;padding:28px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:16px;color:#6B7280}
+.footer-terms{font-size:14px;color:#6B7280;text-decoration:underline}
+.social-links{display:flex;align-items:center;gap:6px}
+.social-links img{width:30px;height:30px;opacity:.7;transition:opacity .15s}
+.social-links img:hover{opacity:1}
+.footer-seo{background:var(--gray-100);padding:16px}
+.footer-seo-inner{max-width:1276px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.seo-col-title{font-size:12px;font-weight:500;color:var(--gray-800);margin-bottom:6px}
+.seo-col-links{display:flex;flex-direction:column;gap:3px}
+.seo-link{font-size:12px;color:var(--gray-500)}
+.seo-more{font-size:12px;font-weight:500;color:var(--gray-500);margin-top:4px;display:block}
+
+/* MOBILE STICKY CTA */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--gray-200);padding:12px 16px;z-index:99;box-shadow:0 -4px 12px rgba(0,0,0,.08)}
+
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);background:#1E2939;color:#fff;border-radius:8px;padding:12px 20px;z-index:300;box-shadow:0 18px 28px 0 rgba(9,30,66,.15);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;font-size:14px}
+.toast.show{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1023px){
+  .two-col{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .contact-card{display:none}
+  .mobile-cta{display:block}
+  .arr-grid{grid-template-columns:repeat(2,1fr)}
+  .benef-grid{grid-template-columns:1fr}
+  .calc-row2{grid-template-columns:1fr}
+  .cresults{grid-template-columns:1fr}
+}
+@media(max-width:767px){
+  .page-wrap{padding:16px 16px 80px}
+  .gallery{border-radius:8px 8px 0 0}
+  .gallery-track-wrap{height:280px}
+  .gallery-track img{height:280px}
+  .listing-title{font-size:22px}
+
+  .arr-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .footer-seo-inner{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── DRAWER ── */
+.drawer-overlay{position:fixed;inset:0;background:rgba(9,30,66,.45);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer-overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;bottom:0;left:0;right:0;background:#fff;z-index:201;border-radius:20px 20px 0 0;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;max-height:90vh;overflow:hidden;box-shadow:0 -4px 24px rgba(9,30,66,.15)}
+.drawer.open{transform:translateY(0)}
+.drawer-header{padding:20px 20px 10px;border-bottom:1px solid var(--gray-200);display:flex;align-items:flex-start;gap:12px;flex-shrink:0}
+.drawer-header-back{width:24px;height:24px;cursor:pointer;color:var(--gray-600);display:flex;align-items:center;justify-content:center;margin-top:2px;flex-shrink:0}
+.drawer-header-info{flex:1}
+.drawer-header-title{font-size:18px;font-weight:600;color:#111827;line-height:26px}
+.drawer-header-sub{font-size:12px;color:#111827;line-height:18px;margin-top:2px}
+.drawer-header-close{width:24px;height:24px;cursor:pointer;color:var(--gray-600);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.drawer-banner{background:#EFF6FF;border-top:1px solid #DBEAFE;border-bottom:1px solid #DBEAFE;padding:8px 16px;text-align:center;font-size:13px;color:var(--blue-600);flex-shrink:0}
+.drawer-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px;overscroll-behavior:contain}
+.drawer-field{margin-bottom:14px}
+.drawer-label{font-size:15px;font-weight:600;color:#1E2939;margin-bottom:4px;display:block}
+.drawer-input{width:100%;height:48px;background:#fff;border:1px solid var(--gray-300);border-radius:6px;padding:10px 12px;font-size:16px;color:#1E2939;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;-webkit-appearance:none;touch-action:manipulation}
+.drawer-input:focus{border-color:var(--blue-600)}
+.drawer-input::placeholder{color:var(--gray-400)}
+.drawer-phone-row{display:flex;gap:8px}
+.drawer-phone-prefix{height:48px;background:#fff;border:1px solid var(--gray-300);border-radius:6px;padding:10px 12px;display:flex;align-items:center;gap:6px;font-size:15px;color:#1E2939;white-space:nowrap;flex-shrink:0}
+.drawer-footer{border-top:1px solid var(--gray-200);padding:14px 20px 24px;flex-shrink:0;background:#fff}
+.drawer-submit{width:100%;height:48px;background:var(--blue-600);color:#fff;border:none;border-radius:4px;font-size:16px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:background .15s}
+.drawer-submit:hover{background:#1147d6}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html">
+      <svg width="140" height="25" viewBox="0 0 184 33" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block">
+        <path d="M43.8538 9.43198C45.055 10.6552 45.6556 12.5166 45.6556 15.0124V23.8826C45.6556 24.536 45.4617 25.0526 45.074 25.4287C44.6863 25.8048 44.1503 25.9909 43.4737 25.9909C42.8427 25.9909 42.3295 25.7972 41.9266 25.4097C41.5275 25.0223 41.326 24.5132 41.326 23.8826V23.0849C40.9117 24.0308 40.2655 24.7677 39.3798 25.3034C38.4941 25.8352 37.4716 26.1049 36.3084 26.1049C35.1186 26.1049 34.0391 25.8618 33.0698 25.3793C32.1005 24.8931 31.3364 24.2283 30.7777 23.3812C30.2189 22.534 29.9414 21.5881 29.9414 20.5473C29.9414 19.2405 30.2759 18.211 30.9411 17.4588C31.6063 16.7067 32.6935 16.1635 34.195 15.8216C35.6964 15.4835 37.7719 15.3125 40.4137 15.3125H41.3222V14.4768C41.3222 13.2916 41.0675 12.4216 40.5582 11.8784C40.0488 11.3352 39.2239 11.0617 38.0836 11.0617C37.3804 11.0617 36.6657 11.1642 35.9359 11.3694C35.2099 11.5745 34.347 11.8708 33.3549 12.2583C32.7239 12.5736 32.2639 12.7293 31.9712 12.7293C31.5341 12.7293 31.1768 12.5736 30.8993 12.2583C30.6218 11.943 30.4812 11.5327 30.4812 11.0237C30.4812 10.6134 30.5838 10.2563 30.7891 9.95241C30.9943 9.64851 31.3403 9.3636 31.8268 9.09768C32.6745 8.63803 33.6856 8.27334 34.864 8.00743C36.0385 7.74151 37.1979 7.60855 38.3383 7.60855C40.8166 7.59716 42.6526 8.20876 43.8538 9.43198ZM40.178 21.6071C40.9421 20.7942 41.3222 19.7495 41.3222 18.4617V17.702H40.6722C39.0491 17.702 37.7871 17.7741 36.89 17.9185C35.9929 18.0629 35.3505 18.3174 34.9628 18.6821C34.5751 19.0467 34.3812 19.5406 34.3812 20.1712C34.3812 20.9461 34.6549 21.5843 35.1985 22.0782C35.742 22.5758 36.4187 22.8227 37.2169 22.8227C38.4295 22.8265 39.4178 22.4201 40.178 21.6071Z" fill="#1B2949"/>
+        <path d="M50.3038 24.5335C49.5284 24.0738 49.1406 23.4204 49.1406 22.5695C49.1406 22.0832 49.2737 21.692 49.5398 21.3881C49.8058 21.0842 50.1327 20.9322 50.5205 20.9322C50.931 20.9322 51.5012 21.1259 52.231 21.5134C53.0065 21.8781 53.7173 22.1554 54.3597 22.3492C55.0021 22.5429 55.8193 22.6417 56.8153 22.6417C57.834 22.6417 58.6284 22.4707 59.1986 22.1326C59.7688 21.7945 60.0539 21.3197 60.0539 20.7157C60.0539 20.3054 59.9398 19.9749 59.708 19.7356C59.4761 19.4925 59.0656 19.2683 58.4726 19.0632C57.8796 18.8581 56.9749 18.6225 55.7623 18.3528C53.6032 17.916 52.06 17.3006 51.1249 16.499C50.1898 15.6975 49.726 14.5958 49.726 13.1903C49.726 12.1228 50.0415 11.1617 50.6725 10.2994C51.3035 9.44084 52.1702 8.77225 53.2725 8.3012C54.3749 7.83015 55.6293 7.59082 57.0357 7.59082C58.0545 7.59082 59.0352 7.71618 59.9817 7.9707C60.9282 8.22522 61.7758 8.5937 62.5285 9.07995C63.3039 9.5662 63.6916 10.2082 63.6916 11.0059C63.6916 11.4922 63.5586 11.8949 63.2925 12.2254C63.0264 12.5521 62.6995 12.7154 62.3118 12.7154C62.0457 12.7154 61.7834 12.6622 61.5288 12.5521C61.2741 12.4419 60.951 12.2785 60.5632 12.062C59.86 11.6973 59.2556 11.4276 58.7463 11.2453C58.2369 11.0629 57.6059 10.9718 56.8571 10.9718C55.96 10.9718 55.2492 11.1541 54.7284 11.515C54.2076 11.8797 53.9453 12.3773 53.9453 13.0041C53.9453 13.6119 54.2114 14.0716 54.7474 14.3869C55.2796 14.7022 56.3097 15.0175 57.8378 15.3328C59.4609 15.6709 60.7343 16.0583 61.658 16.4952C62.5779 16.9321 63.2393 17.4753 63.6384 18.1325C64.0375 18.7859 64.239 19.6216 64.239 20.6397C64.239 22.2884 63.5548 23.6066 62.1826 24.6018C60.8141 25.5971 58.9895 26.091 56.7088 26.091C54.0632 26.0986 51.9269 25.5781 50.3038 24.5335Z" fill="#1B2949"/>
+        <path d="M142.484 25.6951C142.278 25.5013 142.176 25.224 142.176 24.8593V1.12824C142.176 0.763559 142.278 0.486246 142.484 0.292508C142.693 0.0987688 142.963 0 143.305 0C143.62 0 143.879 0.0987688 144.088 0.292508C144.293 0.486246 144.396 0.763559 144.396 1.12824V24.8631C144.396 25.2278 144.293 25.5051 144.088 25.6989C143.883 25.8926 143.62 25.9914 143.305 25.9914C142.963 25.9876 142.693 25.8888 142.484 25.6951Z" fill="#1B2949"/>
+        <path d="M0.113516 25.0385L9.11096 5.61901C9.32383 5.15555 9.76097 4.92383 10.1981 4.92383V24.123C10.0803 24.123 9.96243 24.142 9.84839 24.1761L1.55037 26.6872C0.558256 26.9911 -0.319821 25.9768 0.113516 25.0385Z" fill="#3B82F6"/>
+        <path d="M20.2839 25.0385L11.2903 5.61901C11.0774 5.15555 10.6403 4.92383 10.2031 4.92383V24.123C10.321 24.123 10.4388 24.142 10.5528 24.1761L18.8547 26.6909C19.8392 26.9911 20.721 25.9768 20.2839 25.0385Z" fill="#93C5FD"/>
+      </svg>
+    </a>
+    <div class="nav-menu-btn">
+      <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- Header fuera del grid -->
+  <div class="listing-header" style="margin-bottom:16px;">
+        <div class="listing-title-row">
+          <h1 class="listing-title">Departamento 308 · Seminuevo 2D para inversión</h1>
+          <button class="share-btn">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" stroke="#6A7282" stroke-width="2"/><circle cx="6" cy="12" r="3" stroke="#6A7282" stroke-width="2"/><circle cx="18" cy="19" r="3" stroke="#6A7282" stroke-width="2"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="#6A7282" stroke-width="2"/></svg>
+          </button>
+        </div>
+        <div class="listing-building">Edificio Coronel Souper</div>
+        <div class="listing-address-row">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z" fill="#99A1AF"/></svg>
+          Coronel Souper 4250 · Estación Central
+        </div>
+      </div>
+
+      <!-- Galería -->
+      <div class="gallery" id="gallery">
+        <div class="gallery-track-wrap">
+          <div class="gallery-track" id="gallery-track">
+            <img src="https://www.figma.com/api/mcp/asset/84941ad0-999c-4fe2-8128-605adb9ead1a" alt="Sala principal">
+            <img src="https://www.figma.com/api/mcp/asset/9b64b91e-bfa5-434d-a1f9-2029f780ff0c" alt="Dormitorio principal">
+            <img src="https://www.figma.com/api/mcp/asset/4f1b5f2e-ce31-4683-be0d-5a97dc2939d5" alt="Cocina">
+            <img src="https://www.figma.com/api/mcp/asset/00455ce2-1549-4b5a-aa83-5b424de7b87e" alt="Vista adicional">
+          </div>
+        </div>
+        <span class="gallery-badge">Seminuevo</span>
+        <button class="gallery-nav gallery-nav-left" onclick="galleryPrev()">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="gallery-nav gallery-nav-right" onclick="galleryNext()">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="gallery-dots" id="gallery-dots">
+          <div class="gallery-dot active" onclick="galleryGo(0)"></div>
+          <div class="gallery-dot" onclick="galleryGo(1)"></div>
+          <div class="gallery-dot" onclick="galleryGo(2)"></div>
+          <div class="gallery-dot" onclick="galleryGo(3)"></div>
+        </div>
+        <button class="gallery-more-btn">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke="white" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="white" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="white" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="white" stroke-width="2"/></svg>
+          Ver todas las fotos
+        </button>
+      </div>
+
+  <!-- Grid empieza aquí: izquierda=contenido, derecha=formulario -->
+  <div class="two-col" style="margin-top:0;padding-top:16px;border:1px solid var(--gray-200);border-top:none;border-radius:0 0 12px 12px;padding-left:20px;padding-right:20px;padding-bottom:32px;background:#fff;">
+    <div>
+
+      <!-- Métricas rentabilidad -->
+      <div class="rent-banner" style="margin-bottom:16px;">
+        <div class="rb-metrics">
+          <div class="rb-item">
+            <div class="rb-val green">$650.000</div>
+            <div class="rb-label">Canon de arriendo/mes</div>
+          </div>
+          <div class="rb-item">
+            <div class="rb-val">6.2%</div>
+            <div class="rb-label">Rentabilidad anual</div>
+          </div>
+          <div class="rb-item">
+            <div class="rb-val">3 años</div>
+            <div class="rb-label">Arriendo garantizado</div>
+          </div>
+        </div>
+        <div class="rb-footer">
+          <div class="rb-badge">
+            <span class="urgency-dot"></span>
+            Seminuevo · Arrendado
+          </div>
+        </div>
+      </div>
+
+      <!-- Precio -->
+      <div class="precio-block">
+        <div class="precio-meta">
+          <span>En venta</span>
+          <span>•</span>
+          <span class="entrega-chip">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#1E2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Entrega Inmediata
+          </span>
+        </div>
+        <div class="precio-main">2.500 UF</div>
+        <div class="precio-bono">Bono pie 200 UF (10%)</div>
+        <div class="precio-lista">Precio lista 2.700 UF</div>
+      </div>
+
+      <!-- Specs -->
+      <div class="specs-row">
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><path d="M2 14v-3a5 5 0 015-5h4a5 5 0 015 5v3" stroke="#1E2939" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="5" r="3" stroke="#1E2939" stroke-width="1.5"/></svg>
+          2 dormitorios
+        </span>
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><path d="M3 9h12M3 9V5a2 2 0 012-2h8a2 2 0 012 2v4M3 9v4a2 2 0 002 2h8a2 2 0 002-2V9" stroke="#1E2939" stroke-width="1.5" stroke-linecap="round"/></svg>
+          1 baño
+        </span>
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" stroke="#1E2939" stroke-width="1.5"/></svg>
+          56 m²
+        </span>
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#1E2939" stroke-width="2"/><path d="M12 8l1.5 3.5L17 12l-3.5 1.5L12 17l-1.5-3.5L7 12l3.5-1.5L12 8z" stroke="#1E2939" stroke-width="1.5"/></svg>
+          Vista Oriente
+        </span>
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1" stroke="#1E2939" stroke-width="2"/><path d="M7 10V7a5 5 0 0110 0v3" stroke="#1E2939" stroke-width="2"/></svg>
+          Terraza · 56 m²
+        </span>
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#1E2939" stroke-width="1.5"/></svg>
+          1 bodega
+        </span>
+        <span class="spec-chip">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="10" width="20" height="9" rx="2" stroke="#1E2939" stroke-width="2"/><path d="M6 10V8a2 2 0 012-2h8a2 2 0 012 2v2M5 19v2M19 19v2" stroke="#1E2939" stroke-width="2"/></svg>
+          1 estacionamiento
+        </span>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--gray-200);margin-bottom:0">
+
+      <!-- Descripción -->
+      <div class="section">
+        <h2 class="section-title">Descripción</h2>
+        <p class="section-text">Departamento semi-nuevo en excelente estado, ubicado en Estación Central a 200 metros de Metro Mirador. Arrendatario activo desde el primer día con contrato vigente y canon de $650.000 mensuales. Edificio con terminaciones de primera calidad, ideal para inversionistas que buscan rentabilidad inmediata sin gestión. Entrega inmediata con todo incluido.</p>
+      </div>
+
+      <!-- Condiciones de arriendo -->
+      <div class="section">
+        <h2 class="section-title">Condiciones de arriendo</h2>
+        <div class="arr-grid">
+          <div class="arr-item">
+            <div class="arr-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#155DFC" stroke-width="2"/></svg>
+            </div>
+            <div>
+              <div class="arr-label">Tipo</div>
+              <div class="arr-val" style="font-size:15px;">Seminuevo</div>
+            </div>
+          </div>
+          <div class="arr-item">
+            <div class="arr-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z" fill="#155DFC"/></svg>
+            </div>
+            <div>
+              <div class="arr-label">Canon de arriendo</div>
+              <div class="arr-val">$650.000</div>
+            </div>
+          </div>
+          <div class="arr-item">
+            <div class="arr-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#155DFC" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#155DFC" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="arr-label">Inicio de contrato</div>
+              <div class="arr-val">01/03/2026</div>
+            </div>
+          </div>
+          <div class="arr-item">
+            <div class="arr-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="arr-label">Reajuste</div>
+              <div class="arr-val">Semestral UF</div>
+            </div>
+          </div>
+        </div>
+        <p class="arr-note">* Contrato vigente con arrendatario actual. Los valores corresponden a las condiciones actuales del contrato.</p>
+      </div>
+
+      <!-- Beneficios -->
+      <div class="section">
+        <h2 class="section-title">Beneficios disponibles</h2>
+        <div class="benef-grid">
+          <div class="benef-card">
+            <div class="benef-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="benef-title">Bono pie</div>
+            <div class="benef-text">Ahorra pagando menos: descuento en el valor total de tu pie.</div>
+          </div>
+          <div class="benef-card">
+            <div class="benef-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#155DFC" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="benef-title">Arriendo Garantizado</div>
+            <div class="benef-text">Recibe ingresos desde el primer día, sin riesgo de vacancia.</div>
+          </div>
+          <div class="benef-card">
+            <div class="benef-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#155DFC" stroke-width="2"/><path d="M2 10h20" stroke="#155DFC" stroke-width="2"/></svg>
+            </div>
+            <div class="benef-title">Pie en Cuotas</div>
+            <div class="benef-text">Flexibiliza tu inversión con un pie adicional en cuotas.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculadora -->
+      <div class="section">
+        <div class="calc-trigger" onclick="toggleCalc()">
+          <div class="calc-icon">
+            <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" stroke="white" stroke-width="2"/><path d="M8 7h8M8 11h8M8 15h4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="calc-trigger-info">
+            <div class="calc-title">Simula tu financiamiento</div>
+            <div class="calc-sub">Calcula tu inversión y rentabilidad</div>
+          </div>
+          <svg class="calc-chev" id="calc-chev" width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#155DFC" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="calc-body" id="calc-body">
+          <div class="calc-row2">
+            <div class="cf"><label class="cl">Precio propiedad (UF)</label><input class="ci" type="number" id="cp" value="2500" min="500" max="10000" step="50" oninput="calcRun()"></div>
+            <div class="cf"><label class="cl">Arriendo estimado (CLP)</label><input class="ci" type="number" id="ca" value="650000" min="50000" max="2000000" step="10000" oninput="calcRun()"></div>
+          </div>
+          <div class="cf" style="margin-bottom:10px">
+            <div class="csr"><label class="cl">Pie (%)</label><span class="csv" id="sv-pie">20%</span></div>
+            <input type="range" class="cs" id="sl-pie" min="20" max="50" value="20" step="1" oninput="syncSlider(this,'sv-pie',v=>v+'%');calcRun()">
+          </div>
+          <div class="cf" style="margin-bottom:10px">
+            <div class="csr"><label class="cl">CAE (%)</label><span class="csv" id="sv-cae">4.5%</span></div>
+            <input type="range" class="cs" id="sl-cae" min="2" max="10" value="4.5" step="0.1" oninput="syncSlider(this,'sv-cae',v=>(+v).toFixed(1)+'%');calcRun()">
+          </div>
+          <div class="cf" style="margin-bottom:12px">
+            <div class="csr"><label class="cl">Plazo (años)</label><span class="csv" id="sv-plazo">25 años</span></div>
+            <input type="range" class="cs" id="sl-plazo" min="5" max="30" value="25" step="1" oninput="syncSlider(this,'sv-plazo',v=>v+' años');calcRun()">
+          </div>
+          <div class="cresults">
+            <div class="cbox">
+              <div class="cbox-title">Financiamiento</div>
+              <div class="crow"><span class="crow-l">Valor</span><span class="crow-v" id="r-val">—</span></div>
+              <div class="crow"><span class="crow-l">Pie</span><span class="crow-v" id="r-pie">—</span></div>
+              <div class="crow"><span class="crow-l">A financiar</span><span class="crow-v" id="r-fin">—</span></div>
+              <div class="crow"><span class="crow-l">Cuota mensual</span><span class="crow-v blue" id="r-cuota">—</span></div>
+            </div>
+            <div class="cbox">
+              <div class="cbox-title">Rentabilidad</div>
+              <div class="crow"><span class="crow-l">Arriendo est.</span><span class="crow-v green" id="r-arr">—</span></div>
+              <div class="crow"><span class="crow-l">Diferencia/mes</span><span class="crow-v" id="r-diff">—</span></div>
+              <div class="crow"><span class="crow-l">Diferencia/año</span><span class="crow-v" id="r-danio">—</span></div>
+              <div class="crow"><span class="crow-l">Cap rate</span><span class="crow-v blue" id="r-cap">—</span></div>
+            </div>
+          </div>
+          <p class="calc-disc">Simulación referencial basada en UF $38.500. No constituye oferta comercial.</p>
+        </div>
+      </div>
+
+      <!-- Equipamiento -->
+      <div class="section">
+        <h2 class="section-title">Equipamiento del departamento</h2>
+        <div class="list-items">
+          <div class="list-item">Ventanas termopanel</div>
+          <div class="list-item">Conexión a lavadora</div>
+          <div class="list-item">Refrigerador</div>
+          <div class="list-item">Microondas</div>
+        </div>
+        <button class="expand-btn">Ver los 12 equipamientos</button>
+      </div>
+
+      <!-- Comodidades -->
+      <div class="section">
+        <h2 class="section-title">Comodidades del edificio</h2>
+        <div class="list-items">
+          <div class="comod-item">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 4h12M6 4v5M18 4v5M4 9h16v2a8 8 0 01-8 8 8 8 0 01-8-8V9z" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/></svg>
+            Gimnasio
+          </div>
+          <div class="comod-item">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#1F2937" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/></svg>
+            Lavandería
+          </div>
+          <div class="comod-item">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M3 20h18M5 20V8l7-5 7 5v12" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/></svg>
+            Quincho
+          </div>
+          <div class="comod-item">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M2 12c0-5.52 4.48-10 10-10s10 4.48 10 10M2 12c0 5.52 4.48 10 10 10" stroke="#1F2937" stroke-width="2"/><path d="M12 2v20M2 12h20" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/></svg>
+            Piscina
+          </div>
+          <div class="comod-item">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#1F2937" stroke-width="2"/><path d="M9 22V12h6v10" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/></svg>
+            Salón gourmet
+          </div>
+          <div class="comod-item">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#1F2937" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/></svg>
+            Co-work
+          </div>
+        </div>
+        <button class="expand-btn">Ver las 23 comodidades</button>
+      </div>
+
+      <!-- Ubicación -->
+      <div class="section">
+        <h2 class="section-title">Ubicación</h2>
+        <div class="ubi-pin">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z" fill="#6A7282"/></svg>
+          Coronel Souper 4250, Estación Central
+        </div>
+        <div class="ubi-metro">
+          <img src="https://www.figma.com/api/mcp/asset/608d9fd3-252c-40d0-aba5-165fd09e02c7" alt="Metro">
+          <div>
+            <div class="metro-name">Metro cercano: Mirador</div>
+            <div class="metro-dist">A 200 metros, 8 minutos caminando</div>
+          </div>
+        </div>
+        <div class="map-placeholder">📍 Coronel Souper 4250, Estación Central</div>
+        <div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">
+              <div style="display:flex;align-items:center;gap:8px">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1" stroke="#1E2939" stroke-width="2"/><rect x="13" y="3" width="8" height="8" rx="1" stroke="#1E2939" stroke-width="2"/><rect x="3" y="13" width="8" height="8" rx="1" stroke="#1E2939" stroke-width="2"/><rect x="13" y="13" width="8" height="8" rx="1" stroke="#1E2939" stroke-width="2"/></svg>
+                Transporte
+              </div>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="acc-a"><div class="acc-a-inner">2 estaciones de Metro (Mirador y Estación Central), 1 paradero de bus a menos de 5 minutos caminando.</div></div>
+          </div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">
+              <div style="display:flex;align-items:center;gap:8px">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5M6 12v5c3 3 9 3 12 0v-5" stroke="#1E2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Educación
+              </div>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="acc-a"><div class="acc-a-inner">2 jardines infantiles, 2 colegios y 1 universidad en un radio de 1 km.</div></div>
+          </div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">
+              <div style="display:flex;align-items:center;gap:8px">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="#1E2939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Salud
+              </div>
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="acc-a"><div class="acc-a-inner">1 hospital regional y 2 clínicas privadas en las proximidades del edificio.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQs SEO -->
+      <div class="section">
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">¿Cuánto renta un departamento en Estación Central? <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="acc-a"><div class="acc-a-inner">Los departamentos de 2D en Estación Central rentan entre $450.000 y $700.000 mensuales según tipología y comodidades. Este depto tiene canon activo de $650.000/mes, equivalente a una rentabilidad del 6.2% anual.</div></div>
+          </div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">¿El arriendo garantizado cubre vacancia? <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="acc-a"><div class="acc-a-inner">Sí. Recibes tu renta mensual aunque el departamento quede vacío. Este depto tiene arriendo garantizado por 3 años, independiente de si hay arrendatario o no.</div></div>
+          </div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">¿Es bueno invertir en departamentos en 2026? <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="acc-a"><div class="acc-a-inner">En zonas con alta demanda de arriendo como Estación Central, sí. La rentabilidad promedio de 5–7% anual supera instrumentos de renta fija tradicionales, y la plusvalía cerca del Metro es consistentemente positiva.</div></div>
+          </div>
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-q">¿Puedo invertir teniendo otro crédito hipotecario vigente? <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#1E2939" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="acc-a"><div class="acc-a-inner">Sí, en la mayoría de los casos. Los bancos evalúan la capacidad de pago total incluyendo el flujo del arriendo. Te asesoramos sin costo para revisar tu caso.</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR DESKTOP -->
+    <div class="sidebar">
+      <div class="contact-card">
+        <div class="trust-sig">
+          <span style="width:8px;height:8px;border-radius:50%;background:#009966;display:inline-block;flex-shrink:0"></span>
+          3 inversionistas vieron este depto hoy
+        </div>
+        <h3 class="contact-title">Quiero invertir en este departamento</h3>
+        <div class="ff"><label class="fl">Nombre completo</label><input class="fi" type="text" placeholder="Juan Pérez" id="fn"></div>
+        <div class="ff"><label class="fl">Email</label><input class="fi" type="email" placeholder="juan@ejemplo.cl" id="fe"></div>
+        <div class="ff"><label class="fl">Teléfono</label><input class="fi" type="tel" placeholder="+56 9 1111 1111" id="ft"></div>
+        <div class="ff"><label class="fl">Mensaje (opcional)</label><textarea class="fta" placeholder="Cuéntanos sobre tu interés" id="fm"></textarea></div>
+        <button class="btn-cta" onclick="submitForm()">Quiero invertir en este depto</button>
+        <p class="form-note">Un asesor te contactará en menos de 24 horas</p>
+      </div>
+      <button class="btn-dl">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4z" fill="#155DFC"/><path d="M20 18H4" stroke="#155DFC" stroke-width="2" stroke-linecap="round"/></svg>
+        Descargar brochure
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Ayuda e información</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Centro de ayuda</a>
+          <a href="#" class="footer-link">Validar certificado</a>
+          <a href="#" class="footer-link">Trabaja con nosotros</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Acerca de</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Nosotros</a>
+          <a href="#" class="footer-link">Asesoría Multifamily</a>
+          <a href="#" class="footer-link">Ser corredor</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Clientes</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Portal arrendatario</a>
+          <a href="#" class="footer-link">Portal propietario</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2023 Assetplan</span>
+      <a href="#" class="footer-terms">Términos y condiciones</a>
+      <div class="social-links">
+        <img src="https://www.figma.com/api/mcp/asset/3bbe858b-d46d-47c9-a343-10223367cdf6" alt="Facebook">
+        <img src="https://www.figma.com/api/mcp/asset/f661da7b-a085-4f03-9c9a-3e0cdb0baa79" alt="Instagram">
+        <img src="https://www.figma.com/api/mcp/asset/798b5c22-385f-4346-b2e4-c739b101aeca" alt="LinkedIn">
+        <img src="https://www.figma.com/api/mcp/asset/ca3ae934-81e6-4185-b7d0-9a83ce890011" alt="Twitter">
+        <img src="https://www.figma.com/api/mcp/asset/7db3cd0b-7b3a-46c7-9211-3cdd51d5ad79" alt="YouTube">
+      </div>
+    </div>
+  </div>
+  <div class="footer-seo">
+    <div class="footer-seo-inner">
+      <div>
+        <p class="seo-col-title">Arriendo depto por comuna</p>
+        <div class="seo-col-links">
+          <a href="#" class="seo-link">Arriendo depto Santiago</a>
+          <a href="#" class="seo-link">Arriendo depto Estación Central</a>
+          <a href="#" class="seo-link">Arriendo depto Providencia</a>
+          <a href="#" class="seo-link">Arriendo depto Ñuñoa</a>
+        </div>
+        <a href="#" class="seo-more">Ver más ↓</a>
+      </div>
+      <div>
+        <p class="seo-col-title">Arriendo depto por tipología</p>
+        <div class="seo-col-links">
+          <a href="#" class="seo-link">Arriendo depto 1 dormitorio</a>
+          <a href="#" class="seo-link">Arriendo depto 2 dormitorios</a>
+          <a href="#" class="seo-link">Arriendo depto 3 dormitorios</a>
+          <a href="#" class="seo-link">Arriendo depto 4 dormitorios</a>
+        </div>
+        <a href="#" class="seo-more">Ver más ↓</a>
+      </div>
+      <div>
+        <p class="seo-col-title">Arriendo depto por Metro</p>
+        <div class="seo-col-links">
+          <a href="#" class="seo-link">Arriendo Metro Los Héroes</a>
+          <a href="#" class="seo-link">Arriendo Metro Univ. de Chile</a>
+          <a href="#" class="seo-link">Arriendo Metro Baquedano</a>
+        </div>
+        <a href="#" class="seo-more">Ver más ↓</a>
+      </div>
+      <div>
+        <p class="seo-col-title">Búsquedas relacionadas</p>
+        <div class="seo-col-links">
+          <a href="#" class="seo-link">Venta departamentos</a>
+          <a href="#" class="seo-link">Conseguir arrendatario</a>
+          <a href="#" class="seo-link">Corretaje departamento</a>
+        </div>
+        <a href="#" class="seo-more">Ver más ↓</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Drawer asesoría (mobile) -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer" onclick="event.stopPropagation()">
+  <div class="drawer-header">
+    <div class="drawer-header-back" onclick="closeDrawer()">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div class="drawer-header-info">
+      <p class="drawer-header-title">Quiero invertir en este depto</p>
+      <p class="drawer-header-sub">Un ejecutivo te contactará en menos de 24 horas</p>
+    </div>
+    <div class="drawer-header-close" onclick="closeDrawer()">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+  <div class="drawer-banner"><strong>$650.000/mes · 6.2% rentabilidad · 3 años garantizados</strong></div>
+  <div class="drawer-body">
+    <div class="drawer-field"><label class="drawer-label">Nombre</label><input class="drawer-input" type="text" placeholder="Juan Pérez" id="d-nombre"></div>
+    <div class="drawer-field"><label class="drawer-label">Email</label><input class="drawer-input" type="email" placeholder="juan@ejemplo.cl" id="d-email"></div>
+    <div class="drawer-field">
+      <label class="drawer-label">Teléfono</label>
+      <div class="drawer-phone-row">
+        <div class="drawer-phone-prefix">+56 9 <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#99A1AF" stroke-width="2"/></svg></div>
+        <input class="drawer-input" type="tel" placeholder="9 XXXX XXXX" id="d-tel" style="flex:1">
+      </div>
+    </div>
+    <div class="drawer-field"><label class="drawer-label">Mensaje (opcional)</label><textarea class="drawer-input" style="height:72px;resize:vertical" placeholder="Cuéntanos sobre tu interés" id="d-msg"></textarea></div>
+  </div>
+  <div class="drawer-footer">
+    <button class="drawer-submit" onclick="submitDrawer()">Quiero invertir en este depto</button>
+  </div>
+</div>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-cta">
+  <button class="btn-cta" onclick="openDrawer()">
+    Quiero invertir en este depto
+  </button>
+</div>
+
+<div class="toast" id="toast">✓ Listo. Te contactaremos en menos de 24 horas</div>
+
+<script>
+const UF = 38500;
+
+// Sliders
+function syncSlider(el, outId, fmt) {
+  const min=+el.min, max=+el.max, val=+el.value;
+  el.style.setProperty('--pct', ((val-min)/(max-min)*100).toFixed(1)+'%');
+  document.getElementById(outId).textContent = fmt(val);
+}
+
+// Calculadora
+function calcRun() {
+  const precio = +document.getElementById('cp').value || 2500;
+  const arr = +document.getElementById('ca').value || 650000;
+  const pie = +document.getElementById('sl-pie').value / 100;
+  const cae = +document.getElementById('sl-cae').value / 100;
+  const plazo = +document.getElementById('sl-plazo').value;
+  const pieUF = precio * pie;
+  const monto = precio - pieUF;
+  const n = plazo * 12, r = cae / 12;
+  const cuotaUF = r > 0 ? monto * r / (1 - Math.pow(1+r,-n)) : monto/n;
+  const cuotaCLP = cuotaUF * UF;
+  const diff = arr - cuotaCLP;
+  const cap = (arr * 12) / (precio * UF) * 100;
+  const fmt = n => '$' + Math.round(n).toLocaleString('es-CL');
+  const fmtUF = n => n.toFixed(0)+' UF';
+  document.getElementById('r-val').textContent = fmtUF(precio);
+  document.getElementById('r-pie').textContent = fmtUF(+pieUF.toFixed(0));
+  document.getElementById('r-fin').textContent = fmtUF(+monto.toFixed(0));
+  document.getElementById('r-cuota').textContent = cuotaUF.toFixed(2)+'UF ('+fmt(cuotaCLP)+')';
+  document.getElementById('r-arr').textContent = fmt(arr);
+  const de = document.getElementById('r-diff');
+  de.textContent = fmt(Math.abs(diff)) + (diff>=0?' favor':' déficit');
+  de.className = 'crow-v ' + (diff>=0?'green':'red');
+  const dae = document.getElementById('r-danio');
+  dae.textContent = fmt(Math.abs(diff*12)) + (diff>=0?' favor':' déficit');
+  dae.className = 'crow-v ' + (diff>=0?'green':'red');
+  document.getElementById('r-cap').textContent = cap.toFixed(2)+'% anual';
+  ['sl-pie','sl-cae','sl-plazo'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.style.setProperty('--pct', ((+el.value - +el.min)/(+el.max - +el.min)*100).toFixed(1)+'%');
+  });
+}
+
+function toggleCalc() {
+  const body = document.getElementById('calc-body');
+  const chev = document.getElementById('calc-chev');
+  const open = body.classList.toggle('open');
+  chev.style.transform = open ? 'rotate(180deg)' : '';
+  if(open) calcRun();
+}
+
+// Acordeón
+function toggleAcc(el) {
+  const parent = el.closest('div');
+  parent.querySelectorAll('.acc-item').forEach(i => { if(i !== el) i.classList.remove('open'); });
+  el.classList.toggle('open');
+}
+
+// Drawer
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.documentElement.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.documentElement.style.overflow = '';
+}
+function submitDrawer() {
+  const n = document.getElementById('d-nombre').value.trim();
+  const e = document.getElementById('d-email').value.trim();
+  if(!n || !e) {
+    document.getElementById('d-nombre').style.borderColor = n ? '' : '#DC2626';
+    document.getElementById('d-email').style.borderColor = e ? '' : '#DC2626';
+    return;
+  }
+  closeDrawer();
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeDrawer(); });
+
+// Formulario
+function submitForm() {
+  const n = document.getElementById('fn').value.trim();
+  const e = document.getElementById('fe').value.trim();
+  document.getElementById('fn').style.borderColor = n ? '' : '#DC2626';
+  document.getElementById('fe').style.borderColor = e ? '' : '#DC2626';
+  if(!n || !e) return;
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// Slider styles
+const ss = document.createElement('style');
+ss.textContent = `.cs{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;outline:none;cursor:pointer;background:linear-gradient(to right,#155DFC 0%,#155DFC var(--pct,0%),#D1D5DC var(--pct,0%),#D1D5DC 100%)}.cs::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:2px solid #155DFC;box-shadow:0 1px 4px rgba(0,0,0,.15);cursor:pointer}`;
+document.head.appendChild(ss);
+
+// Init sliders
+document.querySelectorAll('.cs').forEach(el => {
+  el.style.setProperty('--pct', ((+el.value - +el.min)/(+el.max - +el.min)*100).toFixed(1)+'%');
+});
+</script>
+
+</body>
+</html>

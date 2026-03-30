@@ -1148,6 +1148,176 @@
   }
   .navbar-reservar:hover { background: #1147d6; color: #fff; }
 
+  /* ─── RESERVA DRAWER ────────────────────────────────────────── */
+  .reserva-overlay {
+    position: fixed; inset: 0; background: rgba(9,30,66,.45);
+    z-index: 200; opacity: 0; pointer-events: none; transition: opacity .25s;
+  }
+  .reserva-overlay.open { opacity: 1; pointer-events: all; }
+  .reserva-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; width: 520px; max-width: 100vw;
+    background: #fff; z-index: 201;
+    box-shadow: 0 18px 28px 0 rgba(9,30,66,.15), 0 0 1px 0 rgba(9,30,66,.31);
+    transform: translateX(100%); transition: transform .3s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .reserva-drawer.open { transform: translateX(0); }
+  .reserva-nav {
+    display: flex; align-items: center; background: var(--blue-600);
+    padding: 0; height: 52px; flex-shrink: 0;
+  }
+  .reserva-nav-item {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,.55);
+    height: 100%; padding: 0 8px; position: relative; transition: color .2s;
+  }
+  .reserva-nav-item.active { color: #fff; font-weight: 600; }
+  .reserva-nav-item.active::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: #fff; border-radius: 3px 3px 0 0;
+  }
+  .reserva-nav-item.completed { color: rgba(255,255,255,.8); }
+  .reserva-nav-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    background: rgba(255,255,255,.2); color: rgba(255,255,255,.7);
+  }
+  .reserva-nav-item.active .reserva-nav-num { background: #fff; color: var(--blue-600); }
+  .reserva-nav-item.completed .reserva-nav-num { background: rgba(255,255,255,.3); color: #fff; }
+  .reserva-header {
+    padding: 24px 28px 16px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .reserva-header-title { font-size: 22px; font-weight: 700; color: var(--gray-900); }
+  .reserva-header-sub { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
+  .reserva-close {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--gray-100);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; border: none; color: var(--gray-600); font-size: 18px;
+    transition: background .15s;
+  }
+  .reserva-close:hover { background: var(--gray-200); }
+  .reserva-body {
+    flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+    padding: 0 28px 28px; overscroll-behavior: contain;
+  }
+  .reserva-step { display: none; }
+  .reserva-step.active { display: block; }
+  .reserva-field { margin-bottom: 18px; }
+  .reserva-label { font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; display: block; }
+  .reserva-input {
+    width: 100%; height: 48px; border: 1px solid var(--gray-300); border-radius: 8px;
+    padding: 10px 14px; font-size: 15px; color: var(--gray-900);
+    font-family: 'Inter', sans-serif; outline: none; transition: border-color .15s;
+    background: #fff;
+  }
+  .reserva-input:focus { border-color: var(--blue-600); }
+  .reserva-input::placeholder { color: var(--gray-400); }
+  .reserva-hint { font-size: 12px; color: var(--gray-500); margin-top: 4px; }
+  .reserva-footer {
+    flex-shrink: 0; padding: 16px 28px 24px;
+    border-top: 1px solid var(--gray-200); background: #fff;
+  }
+  .reserva-btn-primary {
+    width: 100%; height: 48px; background: var(--blue-600); color: #fff;
+    border: none; border-radius: 8px; font-size: 16px; font-weight: 600;
+    font-family: 'Inter', sans-serif; cursor: pointer; transition: background .15s;
+  }
+  .reserva-btn-primary:hover { background: #1147d6; }
+  .reserva-btn-secondary {
+    width: 100%; height: 48px; background: #fff; color: var(--gray-700);
+    border: 1px solid var(--gray-300); border-radius: 8px; font-size: 15px; font-weight: 500;
+    font-family: 'Inter', sans-serif; cursor: pointer; transition: background .15s;
+    margin-top: 10px;
+  }
+  .reserva-btn-secondary:hover { background: var(--gray-100); }
+
+  /* Step 2 — Pago */
+  .pago-total-box {
+    background: var(--gray-100); border-radius: 12px;
+    padding: 22px 24px; text-align: center; margin-bottom: 24px;
+    border: 1px solid var(--gray-200);
+  }
+  .pago-total-label { font-size: 13px; color: var(--gray-500); margin-bottom: 4px; }
+  .pago-total-amount { font-size: 32px; font-weight: 800; color: var(--blue-600); line-height: 1.1; }
+  .pago-total-sub { font-size: 12px; color: #059669; font-weight: 500; margin-top: 4px; }
+  .pago-method-title { font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 10px; }
+  .pago-method-box {
+    display: flex; align-items: center; gap: 14px;
+    border: 2px solid var(--blue-600); border-radius: 10px;
+    padding: 16px; background: rgba(21,93,252,.03); cursor: pointer; margin-bottom: 16px;
+  }
+  .pago-method-logo {
+    width: 48px; height: 48px; border-radius: 8px; background: #7B61FF;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .pago-method-name { font-size: 15px; font-weight: 600; color: var(--gray-900); }
+  .pago-method-desc { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+  .pago-check { color: var(--blue-600); flex-shrink: 0; margin-left: auto; }
+  .pago-info-list { margin-top: 16px; }
+  .pago-info-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; color: var(--gray-600); line-height: 1.5; margin-bottom: 8px;
+  }
+  .pago-info-item svg { flex-shrink: 0; margin-top: 2px; }
+  .pago-terms {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 12px; color: var(--gray-500); line-height: 1.5;
+    margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--gray-200);
+  }
+  .pago-terms input { margin-top: 2px; flex-shrink: 0; accent-color: var(--blue-600); }
+  .pago-terms a { color: var(--blue-600); text-decoration: underline; }
+  .pago-avatar {
+    position: absolute; bottom: 80px; right: 28px;
+    width: 72px; height: 72px; border-radius: 50%; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    background: var(--gray-200);
+  }
+  .pago-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Step 3 — Confirmación */
+  .confirm-center { text-align: center; padding-top: 40px; }
+  .confirm-icon {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: #ECFDF5; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .confirm-title { font-size: 24px; font-weight: 800; color: var(--gray-900); margin-bottom: 8px; }
+  .confirm-text { font-size: 15px; color: var(--gray-500); line-height: 1.5; max-width: 360px; margin: 0 auto 24px; }
+  .confirm-details {
+    background: var(--gray-100); border-radius: 10px;
+    padding: 16px 20px; text-align: left; margin-bottom: 20px;
+    border: 1px solid var(--gray-200);
+  }
+  .confirm-detail-row {
+    display: flex; justify-content: space-between; padding: 6px 0;
+    font-size: 14px;
+  }
+  .confirm-detail-label { color: var(--gray-500); }
+  .confirm-detail-val { color: var(--gray-900); font-weight: 600; }
+  .confirm-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #ECFDF5; color: #059669; border-radius: 32px;
+    padding: 6px 14px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+  }
+  .reserva-phone-row { display: flex; gap: 10px; }
+  .reserva-phone-prefix {
+    height: 48px; background: #fff; border: 1px solid var(--gray-300);
+    border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 6px;
+    font-size: 15px; color: var(--gray-800); flex-shrink: 0; white-space: nowrap;
+  }
+
+  @media (max-width: 767px) {
+    .reserva-drawer { width: 100%; }
+    .reserva-nav-item { font-size: 11px; gap: 4px; }
+    .reserva-header { padding: 16px 16px 12px; }
+    .reserva-body { padding: 0 16px 16px; }
+    .reserva-footer { padding: 12px 16px 20px; }
+    .pago-total-amount { font-size: 26px; }
+  }
+
   /* ── BOTTOM BAR mobile ── */
   @media (max-width: 767px) {
     .bottom-bar { height: 56px; padding: 0 12px; }
@@ -1189,7 +1359,7 @@
       <a href="#proceso" class="navbar-link">Como invertir</a>
       <a href="#proceso" class="navbar-link">Guía para invertir</a>
       <div style="flex:1"></div>
-      <a href="https://khipu.com/payment/process/FEIrW" target="_blank" rel="noopener" class="navbar-reservar">Reservar Departamento</a>
+      <button class="navbar-reservar" onclick="openReserva()">Reservar Departamento</button>
     </nav>
   </div>
 </nav>
@@ -2479,6 +2649,235 @@
   </div>
 </div>
 
+<!-- ╔══════════════════════════════════════════════╗
+     ║  RESERVA DEPARTAMENTO — 3 PASOS             ║
+     ╚══════════════════════════════════════════════╝ -->
+
+<!-- Overlay -->
+<div class="reserva-overlay" id="reserva-overlay" onclick="closeReserva()"></div>
+
+<!-- Drawer -->
+<div class="reserva-drawer" id="reserva-drawer" onclick="event.stopPropagation()">
+
+  <!-- Step Tabs -->
+  <div class="reserva-nav">
+    <div class="reserva-nav-item active" id="rnav-1">
+      <span class="reserva-nav-num">1</span> Identificación
+    </div>
+    <div class="reserva-nav-item" id="rnav-2">
+      <span class="reserva-nav-num">2</span> Detalle de pago
+    </div>
+    <div class="reserva-nav-item" id="rnav-3">
+      <span class="reserva-nav-num">3</span> Confirmación
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="reserva-header">
+    <div>
+      <p class="reserva-header-title" id="reserva-title">Reserva tu departamento</p>
+      <p class="reserva-header-sub" id="reserva-sub">Completa tus datos de identificación para procesar la reserva</p>
+    </div>
+    <button class="reserva-close" onclick="closeReserva()">×</button>
+  </div>
+
+  <!-- Body -->
+  <div class="reserva-body">
+
+    <!-- ═══ STEP 1: Identificación ═══ -->
+    <div class="reserva-step active" id="reserva-step-1">
+      <div class="reserva-field">
+        <label class="reserva-label">RUT</label>
+        <input class="reserva-input" type="text" placeholder="12.345.678-9" id="r-rut">
+        <p class="reserva-hint">Ingresa tu RUT sin puntos y con guión</p>
+      </div>
+      <div class="reserva-field">
+        <label class="reserva-label">Nombre completo</label>
+        <input class="reserva-input" type="text" placeholder="Juan Pérez" id="r-nombre">
+      </div>
+      <div class="reserva-field">
+        <label class="reserva-label">Correo electrónico</label>
+        <input class="reserva-input" type="email" placeholder="nombre@correo.com" id="r-email">
+      </div>
+      <div class="reserva-field">
+        <label class="reserva-label">Teléfono</label>
+        <div class="reserva-phone-row">
+          <div class="reserva-phone-prefix">
+            🇨🇱 +56 9
+          </div>
+          <input class="reserva-input" type="tel" placeholder="XXXX XXXX" id="r-telefono" style="flex:1;">
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 2: Detalle de pago ═══ -->
+    <div class="reserva-step" id="reserva-step-2">
+      <div class="pago-total-box">
+        <p class="pago-total-label">Total a pagar</p>
+        <p class="pago-total-amount">$ 250.000</p>
+        <p class="pago-total-sub">✓ Reembolsable con condiciones</p>
+      </div>
+
+      <p class="pago-method-title">Método de pago</p>
+      <div class="pago-method-box">
+        <div class="pago-method-logo">Khipu</div>
+        <div>
+          <p class="pago-method-name">Khipu</p>
+          <p class="pago-method-desc">Transferencia bancaria instantánea</p>
+        </div>
+        <svg class="pago-check" width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
+          <path d="M7 12l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="pago-info-list">
+        <div class="pago-info-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#059669" stroke-width="2"/></svg>
+          Pago del pie, escritura y gastos operacionales
+        </div>
+        <div class="pago-info-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#059669" stroke-width="2"/></svg>
+          Reserva con un abono de $ 250.000
+        </div>
+        <div class="pago-info-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#059669" stroke-width="2"/></svg>
+          Acepta Servipag, webpay y Kushki
+        </div>
+      </div>
+
+      <div class="pago-terms">
+        <input type="checkbox" id="r-terms">
+        <label for="r-terms">Acepto los <a href="#">Términos y condiciones</a> de Assetplan para la reserva del departamento seleccionado.</label>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 3: Confirmación ═══ -->
+    <div class="reserva-step" id="reserva-step-3">
+      <div class="confirm-center">
+        <div class="confirm-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12l2 2 4-4" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="10" stroke="#059669" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h2 class="confirm-title">¡Reserva lista!</h2>
+        <p class="confirm-text">Tu pago se ha procesado exitosamente. Te enviaremos un correo de confirmación a tu email.</p>
+        <div class="confirm-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Pago confirmado
+        </div>
+        <div class="confirm-details">
+          <div class="confirm-detail-row">
+            <span class="confirm-detail-label">Monto pagado</span>
+            <span class="confirm-detail-val">$ 250.000</span>
+          </div>
+          <div class="confirm-detail-row">
+            <span class="confirm-detail-label">Método</span>
+            <span class="confirm-detail-val">Khipu</span>
+          </div>
+          <div class="confirm-detail-row">
+            <span class="confirm-detail-label">Estado</span>
+            <span class="confirm-detail-val" style="color:#059669;">Aprobado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="reserva-footer" id="reserva-footer">
+    <button class="reserva-btn-primary" id="reserva-next" onclick="reservaNext()">Continuar</button>
+    <button class="reserva-btn-secondary" id="reserva-back" onclick="reservaPrev()" style="display:none;">Volver</button>
+  </div>
+
+</div>
+
+<script>
+  // ── RESERVA FLOW ─────────────────────────────────────────────
+  let reservaStep = 1;
+
+  function openReserva() {
+    reservaStep = 1;
+    updateReservaUI();
+    document.getElementById('reserva-drawer').classList.add('open');
+    document.getElementById('reserva-overlay').classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function closeReserva() {
+    document.getElementById('reserva-drawer').classList.remove('open');
+    document.getElementById('reserva-overlay').classList.remove('open');
+    document.documentElement.style.overflow = '';
+  }
+  function reservaNext() {
+    if (reservaStep === 1) {
+      const rut = document.getElementById('r-rut').value.trim();
+      const nombre = document.getElementById('r-nombre').value.trim();
+      const email = document.getElementById('r-email').value.trim();
+      if (!rut || !nombre || !email) {
+        alert('Por favor completa al menos RUT, nombre y correo.');
+        return;
+      }
+    }
+    if (reservaStep === 2) {
+      const terms = document.getElementById('r-terms').checked;
+      if (!terms) {
+        alert('Debes aceptar los términos y condiciones.');
+        return;
+      }
+    }
+    if (reservaStep < 3) {
+      reservaStep++;
+      updateReservaUI();
+    } else {
+      closeReserva();
+    }
+  }
+  function reservaPrev() {
+    if (reservaStep > 1) {
+      reservaStep--;
+      updateReservaUI();
+    }
+  }
+  function updateReservaUI() {
+    // Steps
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('reserva-step-' + i).classList.toggle('active', i === reservaStep);
+      const nav = document.getElementById('rnav-' + i);
+      nav.classList.remove('active', 'completed');
+      if (i === reservaStep) nav.classList.add('active');
+      else if (i < reservaStep) nav.classList.add('completed');
+    }
+    // Header
+    const titles = {
+      1: ['Reserva tu departamento', 'Completa tus datos de identificación para procesar la reserva'],
+      2: ['Pago reserva', 'Revisa el detalle y confirma tu pago'],
+      3: ['¡Reserva lista!', 'Tu reserva ha sido procesada correctamente']
+    };
+    document.getElementById('reserva-title').textContent = titles[reservaStep][0];
+    document.getElementById('reserva-sub').textContent = titles[reservaStep][1];
+    // Buttons
+    const nextBtn = document.getElementById('reserva-next');
+    const backBtn = document.getElementById('reserva-back');
+    const footer = document.getElementById('reserva-footer');
+    if (reservaStep === 1) {
+      nextBtn.textContent = 'Continuar';
+      backBtn.style.display = 'none';
+      footer.style.display = '';
+    } else if (reservaStep === 2) {
+      nextBtn.textContent = 'Pagar con Khipu';
+      backBtn.style.display = '';
+      footer.style.display = '';
+    } else {
+      nextBtn.textContent = 'Cerrar';
+      backBtn.style.display = 'none';
+      footer.style.display = '';
+    }
+  }
+  // Cerrar con Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReserva(); });
+</script>
+
 </body>
 </html>
-

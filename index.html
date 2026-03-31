@@ -2307,76 +2307,6 @@
 </section>
 
 
-<!-- ╔══════════════════════════════════════════════╗
-     ║  DRAWER ASESORÍA GRATUITA                    ║
-     ╚══════════════════════════════════════════════╝ -->
-<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()">
-  <div class="drawer" id="drawer" onclick="event.stopPropagation()">
-    <div class="drawer-header">
-      <button class="drawer-back" onclick="closeDrawer()">←</button>
-      <div class="drawer-title-wrap">
-        <p class="drawer-title">Asesoría gratuita</p>
-        <p class="drawer-subtitle">Un ejecutivo te contactará en menos de 2 días hábiles</p>
-      </div>
-      <button class="drawer-close" onclick="closeDrawer()">×</button>
-    </div>
-    <div class="drawer-banner">
-      <strong>+6.500 Inversionistas</strong> ya confían en Assetplan. Únete hoy
-    </div>
-    <div class="drawer-body">
-      <div class="drawer-field">
-        <label class="drawer-label">Nombre</label>
-        <input class="drawer-input" type="text" placeholder="Juan" id="d-nombre">
-      </div>
-      <div class="drawer-field">
-        <label class="drawer-label">Teléfono</label>
-        <div class="drawer-phone-row">
-          <div class="drawer-phone-prefix">+56 9 ▾</div>
-          <input class="drawer-input" type="tel" placeholder="9 XXXX XX XX" id="d-telefono" style="flex:1;">
-        </div>
-      </div>
-      <div class="drawer-field">
-        <label class="drawer-label">Correo</label>
-        <input class="drawer-input" type="email" placeholder="nombre@correo.com" id="d-correo">
-      </div>
-      <div class="drawer-field">
-        <label class="drawer-label">Capital disponible para pie</label>
-        <select class="drawer-select" id="d-capital">
-          <option value="" disabled selected>Selecciona un rango</option>
-          <option>Menos de $5 millones</option>
-          <option>$5 - $10 millones</option>
-          <option>$10 - $20 millones</option>
-          <option>$20 - $50 millones</option>
-          <option>Más de $50 millones</option>
-        </select>
-      </div>
-      <div class="drawer-field">
-        <label class="drawer-when-label">¿Cuándo quieres invertir?</label>
-        <div class="drawer-when-grid">
-          <button class="drawer-when-btn" onclick="selectWhen(this)">
-            <div class="when-icon">⚡</div>
-            <div class="when-text">Ahora mismo</div>
-          </button>
-          <button class="drawer-when-btn" onclick="selectWhen(this)">
-            <div class="when-icon">📅</div>
-            <div class="when-text">Próximo 3 meses</div>
-          </button>
-          <button class="drawer-when-btn" onclick="selectWhen(this)">
-            <div class="when-icon">🗓</div>
-            <div class="when-text">3 a 6 meses</div>
-          </button>
-          <button class="drawer-when-btn" onclick="selectWhen(this)">
-            <div class="when-icon">🔍</div>
-            <div class="when-text">Explorando</div>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="drawer-footer">
-      <button class="drawer-submit" onclick="submitDrawer()">Solicitar asesoría gratuita</button>
-    </div>
-  </div>
-</div>
 
 <!-- Toast -->
 <div class="toast" id="toast">
@@ -2600,22 +2530,6 @@
 
 
   // ── DRAWER ───────────────────────────────────────────────────
-  function openDrawer() {
-    document.getElementById('drawer').classList.add('open');
-    document.getElementById('drawer-overlay').classList.add('open');
-    document.documentElement.style.overflow = 'hidden';
-    document.documentElement.style.height = '100%';
-  }
-  function closeDrawer() {
-    document.getElementById('drawer').classList.remove('open');
-    document.getElementById('drawer-overlay').classList.remove('open');
-    document.documentElement.style.overflow = '';
-    document.documentElement.style.height = '';
-  }
-  function selectHorizon(btn) {
-    document.querySelectorAll('.horizon-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-  }
   function submitDrawer() {
     const nombre = document.getElementById('d-nombre').value.trim();
     const correo = document.getElementById('d-correo').value.trim();
@@ -2744,8 +2658,8 @@
       <label class="drawer-label">¿Cuándo quieres invertir?</label>
       <div class="drawer-when-grid">
         <button class="drawer-when-btn" onclick="selectWhen(this)">⚡️ Ahora mismo</button>
-        <button class="drawer-when-btn" onclick="selectWhen(this)">📆 Próximo 3 meses</button>
-        <button class="drawer-when-btn" onclick="selectWhen(this)">🗓️ 3 a 6 meses</button>
+        <button class="drawer-when-btn" onclick="selectWhen(this)">🗓️ Próximo 3 meses</button>
+        <button class="drawer-when-btn" onclick="selectWhen(this)">📅 3 a 6 meses</button>
         <button class="drawer-when-btn" onclick="selectWhen(this)">🔍 Explorando</button>
       </div>
     </div>
@@ -2759,8 +2673,12 @@
 
 <!-- Toast -->
 <div class="toast" id="toast">
-  <img class="toast-icon" src="https://www.figma.com/api/mcp/asset/540dc77f-d48a-4689-a2bf-e1a3a727ddd3" alt="check">
-  <span class="toast-text">Listo. Te contactaremos dentro de 2 días hábiles</span>
+  <div class="toast-check">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+      <path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  Listo. Te contactaremos dentro de 24 hrs.
 </div>
 
 <!-- ═══ WHATSAPP FLOATING BUTTON ═══ -->

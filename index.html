@@ -143,14 +143,6 @@
     transition: background .15s;
   }
   .search-btn:hover { background: #1147d6; }
-  .search-filters { display: flex; align-items: center; gap: 15px; margin-top: 21px; }
-  .search-filter-label { font-size: 16px; color: var(--gray-500); line-height: 24px; }
-  .search-filter-badge {
-    border: 1px solid var(--gray-300); border-radius: 32px;
-    padding: 2px 8px; font-size: 14px; font-weight: 500; color: var(--gray-400);
-    cursor: pointer; transition: border-color .15s, color .15s; background: #fff;
-  }
-  .search-filter-badge:hover { border-color: var(--blue-600); color: var(--blue-600); }
 
   /* ─── BENEFICIOS ────────────────────────────────────────────── */
   .beneficios { padding: 120px 0 80px; background: #fff; }
@@ -923,7 +915,6 @@
     .search-input-comuna { width: 100%; }
     .search-input-uf { width: 100%; }
     .search-btn { width: 100%; justify-content: center; }
-    .search-filters { flex-wrap: wrap; gap: 8px; }
   }
 
   /* ── SECCIONES padding mobile ── */
@@ -1138,15 +1129,31 @@
   .pcard-spec-u { display: flex; align-items: center; gap: 4px; border: 1px solid var(--gray-300); border-radius: 8px; padding: 5px 8px; font-size: 13px; color: var(--gray-800); }
 
 
-  .navbar-reservar {
+  .navbar-btn-secondary {
     display: inline-flex; align-items: center; justify-content: center;
-    background: var(--blue-600); color: #fff;
+    background: #fff; color: var(--blue-600); border: 1px solid var(--blue-600);
+    font-size: 15px; font-weight: 500; line-height: 1;
+    padding: 10px 20px; border-radius: 6px;
+    transition: all .15s; white-space: nowrap; flex-shrink: 0;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+  .navbar-btn-secondary:hover { background: var(--blue-100); }
+
+  .navbar-btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--blue-600); color: #fff; border: none;
     font-size: 15px; font-weight: 500; line-height: 1;
     padding: 10px 20px; border-radius: 6px;
     transition: background .15s; white-space: nowrap; flex-shrink: 0;
-    cursor: pointer; border: none; font-family: 'Inter', sans-serif;
+    cursor: pointer; font-family: 'Inter', sans-serif;
   }
-  .navbar-reservar:hover { background: #1147d6; color: #fff; }
+  .navbar-btn-primary:hover { background: #1147d6; }
+
+  @media (max-width: 991px) {
+    .navbar .container { padding: 0 16px; }
+    .navbar-nav { display: none; }
+    .navbar-btn-secondary, .navbar-btn-primary { display: none; }
+  }
 
   /* ─── PAGO RESERVA — FULL PAGE FLOW ─────────────────────────── */
   .pago-page {
@@ -1505,12 +1512,14 @@
 </svg>
     </a>
     <nav class="navbar-nav">
-      <a href="#proyectos" class="navbar-link">Proyectos nuevos</a>
-      <a href="#usados" class="navbar-link">Usados</a>
-      <a href="#proceso" class="navbar-link">Como invertir</a>
-      <a href="#proceso" class="navbar-link">Guía para invertir</a>
+      <a href="resultados.html?filter=nuevas" class="navbar-link">Proyectos nuevos</a>
+      <a href="guia-inversion.html" class="navbar-link">Guía de inversión</a>
+      <a href="#" onclick="openDrawer(); return false;" class="navbar-link">Guía de asesoría</a>
       <div style="flex:1"></div>
-      <button class="navbar-reservar" onclick="openReserva()">Reservar Departamento</button>
+      <div style="display:flex; gap:12px; align-items:center;">
+        <button class="navbar-btn-secondary" onclick="openReserva()">Reservar departamento</button>
+        <button class="navbar-btn-primary" onclick="openDrawer()">Quiero invertir ahora</button>
+      </div>
     </nav>
   </div>
 </nav>
@@ -1551,12 +1560,6 @@
         <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1 0 5.1 5.1a7.5 7.5 0 0 0 11.55 11.55z" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
         Buscar
       </button>
-    </div>
-    <div class="search-filters">
-      <span class="search-filter-label">Filtros rápidos:</span>
-      <span class="search-filter-badge" onclick="window.location.href='resultados.html'" style="cursor:pointer;">Sin pie</span>
-      <span class="search-filter-badge" onclick="window.location.href='resultados.html'" style="cursor:pointer;">Pie en cuotas</span>
-      <span class="search-filter-badge" onclick="window.location.href='resultados.html'" style="cursor:pointer;">Entrega inmediata</span>
     </div>
   </div>
 </section>
@@ -2694,7 +2697,7 @@
     </div>
     <div class="drawer-header-info">
       <p class="drawer-header-title">Asesoría gratuita</p>
-      <p class="drawer-header-sub">Un ejecutivo te contactará en menos de 2 días hábiles</p>
+      <p class="drawer-header-sub">Un ejecutivo te contactará en menos de 24 hrs.</p>
     </div>
     <div class="drawer-header-close" onclick="closeDrawer()">
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -2703,7 +2706,7 @@
 
   <!-- Banner -->
   <div class="drawer-banner">
-    <strong>+6.500 Inversionistas</strong> ya confían en Assetplan. Únete hoy
+    <strong>+5.000 Inversionistas</strong> ya confían en Assetplan. Únete hoy
   </div>
 
   <!-- Body / Form -->
